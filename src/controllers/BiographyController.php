@@ -119,6 +119,23 @@ final class BiographyController
             }
         }
         unset($step);
+        // Lineage proofs are sources too: show any not already in biography_sources
+        $have = [];
+        foreach ($sources as $s0) { if (!empty($s0['source_id'])) $have[(int)$s0['source_id']] = true; }
+        foreach ($lineage as $st) {
+            $ids = $st['proof_sources'] ?? [];
+            if (!empty($st['archive_source_id'])) {
+                $a = Db::fetch('SELECT id, title, visibility, media_path FROM sources WHERE id = ?', [(int)$st['archive_source_id']]);
+                if ($a) array_unshift($ids, $a);
+            }
+            foreach ($ids as $ps) {
+                $sid = (int)$ps['id'];
+                if (isset($have[$sid])) continue;
+                $have[$sid] = true;
+                $sources[] = ['source_id' => $sid, 'source_title' => $ps['title'], 'media_path' => $ps['media_path'] ?? null,
+                    'visibility' => $ps['visibility'] ?? 'archive', 'citation_text' => 'Prueba de filiación: ' . (string)($st['person_name'] ?? '')];
+            }
+        }
 
         $person = null;
         if (!empty($bio['person_id'])) {

@@ -13,13 +13,14 @@ foreach ($groups as $key => $g) {
             'initials' => $ini((string)$b['full_name']),
             'lifespan' => (string)($b['lifespan_label'] ?? ''),
             'subtitle' => (string)($b['subtitle'] ?? ''),
-            'img' => !empty($b['portrait_path']) ? '/media/biography/' . (int)$b['id'] : null,
+            'img' => !empty($b['portrait_path']) ? '/media/biography/' . (int)$b['id'] : ('/public/assets/img/' . (($b['family_group'] ?? $key) === 'garza-garcia' ? 'escudo-garza-garcia' : 'escudo-garcia-garza') . '.png'),
+            'escudo' => empty($b['portrait_path']),
             'href' => '/biografias/' . $b['slug'],
         ];
     }
     $museo[] = ['key' => $key, 'name' => 'Familia ' . $g['name'], 'items' => $items];
 }
-$v = 'm3d-2610b';
+$v = 'm3d-2610c';
 ?>
 <link rel="stylesheet" href="/public/assets/museo-3d.css?v=<?= $v ?>">
 <div class="m3d" id="m3d">
@@ -48,7 +49,7 @@ $v = 'm3d-2610b';
       <div class="m3d-wall">
         <?php foreach ($sala['items'] as $it): ?>
         <a class="m3d-obra" href="<?= e($it['href']) ?>">
-          <span class="m3d-marco"><?php if ($it['img']): ?><img src="<?= e($it['img']) ?>" alt="Retrato de <?= e($it['name']) ?>" loading="lazy"><?php else: ?><span class="m3d-mono"><?= e($it['initials']) ?></span><?php endif; ?></span>
+          <span class="m3d-marco"><?php if ($it['img']): ?><img src="<?= e($it['img']) ?>" alt="<?= !empty($it['escudo']) ? 'Escudo familiar' : 'Retrato' ?> de <?= e($it['name']) ?>" loading="lazy"><?php else: ?><span class="m3d-mono"><?= e($it['initials']) ?></span><?php endif; ?></span>
           <span class="m3d-cedula"><strong><?= e($it['name']) ?></strong><?php if ($it['lifespan']): ?><small><?= e($it['lifespan']) ?></small><?php endif; ?><?php if ($it['subtitle']): ?><em><?= e($it['subtitle']) ?></em><?php endif; ?></span>
         </a>
         <?php endforeach; ?>
