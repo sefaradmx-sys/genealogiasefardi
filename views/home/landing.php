@@ -1,18 +1,27 @@
 <section class="landing-hero">
-  <div class="landing-hero-inner">
-    <p class="eyebrow">Archivo documental · evidencia primero</p>
-    <h1>Genealogía Sefardí</h1>
-    <p class="lede">Reconstruya su linaje con fuentes compartidas, cadenas de prueba y un árbol propio — registro gratuito.</p>
-    <form class="landing-search" method="get" action="/search" role="search">
-      <label class="sr-only" for="landing-q">Buscar en Genealogía Sefardí</label>
-      <input id="landing-q" type="search" name="q" placeholder="Buscar Garza Falcón, un apellido, un año…" autocomplete="off">
-      <button type="submit" class="btn btn-lg">Buscar</button>
-    </form>
-    <div class="landing-ctas">
-      <a class="btn btn-lg" href="/expediente">Llenar mi expediente familiar</a>
-      <a class="btn btn-lg" href="/registro">Registro gratis</a>
-      <a class="btn btn-lg btn-outline-light" href="/login">Iniciar sesión</a>
-      <a class="btn btn-lg btn-outline-light" href="/archivo">Ver archivo de pruebas</a>
+  <div class="landing-hero-grid">
+    <div class="landing-hero-inner">
+      <p class="eyebrow">Archivo documental · evidencia primero</p>
+      <h1>Genealogía Sefardí</h1>
+      <p class="lede">Reconstruya su linaje con fuentes compartidas, cadenas de prueba y un árbol propio — registro gratuito.</p>
+      <form class="landing-search" method="get" action="/search" role="search">
+        <label class="sr-only" for="landing-q">Buscar en Genealogía Sefardí</label>
+        <input id="landing-q" type="search" name="q" placeholder="Buscar Garza Falcón, un apellido, un año…" autocomplete="off">
+        <button type="submit" class="btn btn-lg">Buscar</button>
+      </form>
+      <div class="landing-ctas">
+        <a class="btn btn-lg" href="/expediente">Llenar mi expediente familiar</a>
+        <a class="btn btn-lg" href="/registro">Registro gratis</a>
+        <a class="btn btn-lg btn-outline-light" href="/login">Iniciar sesión</a>
+        <a class="btn btn-lg btn-outline-light" href="/archivo">Ver archivo de pruebas</a>
+      </div>
+    </div>
+    <div class="landing-mosaic" aria-hidden="true">
+      <a class="mosaic-tile mosaic-a" href="/biografias/dionisio-garcia-fuentes"><img src="/media/biography/3" alt="" loading="eager"></a>
+      <a class="mosaic-tile mosaic-b" href="/biografias/francisco-javier-garcia-gaona"><img src="/media/biography/4" alt="" loading="eager"></a>
+      <a class="mosaic-tile mosaic-c" href="/biografias/praxedis-de-la-pena-garcia"><img src="/media/biography/60" alt="" loading="eager"></a>
+      <a class="mosaic-tile mosaic-d" href="/personas-ilustres"><img src="/public/assets/logo.svg" alt="" loading="eager"></a>
+      <div class="mosaic-caption">Retratos del archivo · familias García Garza y Garza García</div>
     </div>
   </div>
 </section>
@@ -20,17 +29,38 @@
 <nav class="quick-links" aria-label="Accesos rápidos">
   <a href="/archivo">Archivo<small>Actas y pruebas</small></a>
   <a href="/biografias">Biografías<small>Fichas citables</small></a>
-  <a href="/personas-ilustres">Personas ilustres<small>Retratos</small></a>
+  <a href="/personas-ilustres">Personas ilustres<small>Museo 3D</small></a>
   <a href="/expediente">Expediente<small>Su familia</small></a>
   <a href="https://arbol.genealogiasefardi.site/index.php?route=%2Fsefarad-mx%2Ftree%2Fsefarad">Árbol<small>Webtrees</small></a>
   <a href="/#censos">Censos<small>Consulta</small></a>
 </nav>
 
+<section class="landing-section gallery-strip">
+  <h2 class="section-title">Del archivo vivo</h2>
+  <div class="gallery-strip-row">
+    <a class="gallery-card" href="/personas-ilustres">
+      <img src="/media/biography/3" alt="Dr. Dionisio García Fuentes" loading="lazy">
+      <span>Dionisio García Fuentes</span>
+    </a>
+    <a class="gallery-card" href="/biografias/praxedis-de-la-pena-garcia">
+      <img src="/media/biography/60" alt="Lic. Praxedis de la Peña García" loading="lazy">
+      <span>Praxedis de la Peña García</span>
+    </a>
+    <a class="gallery-card" href="/biografias/francisco-javier-garcia-gaona">
+      <img src="/media/biography/4" alt="Lic. Francisco Javier García Gaona" loading="lazy">
+      <span>Francisco Javier García Gaona</span>
+    </a>
+    <a class="gallery-card gallery-card-cta" href="/archivo">
+      <strong><?= !empty($archiveCount) ? (int)$archiveCount : '—' ?></strong>
+      <span>documentos en el archivo público</span>
+    </a>
+  </div>
+</section>
 
 <section class="landing-section ilustres-cta-wrap">
   <p class="eyebrow">Galería</p>
   <a class="ilustres-cta" href="/personas-ilustres"><span class="ico" aria-hidden="true">🖼</span> Personas ilustres</a>
-  <span class="ilustres-cta-sub">Familias García Garza y Garza García · retratos y biografías documentadas</span>
+  <span class="ilustres-cta-sub">Familias García Garza y Garza García · museo 3D y biografías documentadas</span>
 </section>
 
 <section class="landing-section">
@@ -72,9 +102,16 @@
   <div class="bio-cards">
     <?php foreach ($featuredBios as $b): ?>
       <a class="bio-card" href="/biografias/<?= e($b['slug']) ?>">
-        <strong><?= e($b['full_name']) ?></strong>
-        <?php if ($b['lifespan_label']): ?><span class="meta"><?= e($b['lifespan_label']) ?></span><?php endif; ?>
-        <span class="hint"><?= e(mb_substr($b['summary'] ?? '', 0, 140)) ?>…</span>
+        <?php if (!empty($b['portrait_path'])): ?>
+          <img class="bio-thumb" src="/media/biography/<?= (int)$b['id'] ?>" alt="" loading="lazy">
+        <?php else: ?>
+          <span class="bio-thumb bio-thumb-fallback" aria-hidden="true"></span>
+        <?php endif; ?>
+        <span class="bio-card-text">
+          <strong><?= e($b['full_name']) ?></strong>
+          <?php if ($b['lifespan_label']): ?><span class="meta"><?= e($b['lifespan_label']) ?></span><?php endif; ?>
+          <span class="hint"><?= e(mb_substr($b['summary'] ?? '', 0, 140)) ?>…</span>
+        </span>
       </a>
     <?php endforeach; ?>
   </div>

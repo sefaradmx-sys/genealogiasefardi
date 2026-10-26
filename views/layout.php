@@ -37,8 +37,8 @@ $isPublic = !empty($public) || $isPublicAuth;
   <?php if (!empty($jsonLd)): ?>
   <script type="application/ld+json"><?= $jsonLd /* pre-encoded JSON */ ?></script>
   <?php endif; ?>
-  <link rel="stylesheet" href="<?= e(asset('app.css')) ?>">
-  <link rel="stylesheet" href="/public/assets/investigar.css?v=cafe2610">
+  <link rel="stylesheet" href="<?= e(asset('app.css')) ?>?v=hdr2610">
+  <link rel="stylesheet" href="/public/assets/investigar.css?v=hdr2610">
 </head>
 <body class="<?= $isPublic && !$currentUser ? 'public-body' : '' ?><?= !empty($bodyClass) ? ' ' . e($bodyClass) : '' ?>">
 <?php if ($isPublicAuth): ?>
@@ -47,11 +47,18 @@ $isPublic = !empty($public) || $isPublicAuth;
 <header class="site-header">
   <div class="header-inner">
     <a class="brand" href="<?= $currentUser ? '/panel' : '/' ?>"><?= e($appName) ?> <span>archivo</span></a>
-    <form class="header-search" method="get" action="/search" role="search">
-      <label class="sr-only" for="header-q">Buscar en todo el sitio</label>
-      <input id="header-q" type="search" name="q" value="<?= e($_GET['q'] ?? '') ?>" placeholder="Buscar nombre, apellido, año…" autocomplete="off">
-      <button type="submit" class="btn btn-sm" title="Buscar">Buscar</button>
-    </form>
+    <div class="header-tools">
+      <form class="header-search" method="get" action="/search" role="search">
+        <label class="sr-only" for="header-q">Buscar en todo el sitio</label>
+        <input id="header-q" type="search" name="q" value="<?= e($_GET['q'] ?? '') ?>" placeholder="Nombre, apellido, año…" autocomplete="off">
+        <button type="submit" class="btn btn-sm" title="Buscar">Buscar</button>
+      </form>
+      <div class="header-chips" aria-label="Accesos">
+        <a class="header-chip" href="/expediente">Expediente</a>
+        <a class="header-chip" href="/personas-ilustres">Ilustres</a>
+        <a class="header-chip" href="/archivo">Archivo</a>
+      </div>
+    </div>
     <nav class="nav">
       <?php if ($currentUser): ?>
         <a href="/panel">Panel</a>
