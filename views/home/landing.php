@@ -17,11 +17,11 @@
       </div>
     </div>
     <div class="landing-mosaic" aria-hidden="true">
-      <a class="mosaic-tile mosaic-a" href="/biografias/dionisio-garcia-fuentes"><img src="/media/biography/3" alt="" loading="eager"></a>
-      <a class="mosaic-tile mosaic-b" href="/biografias/francisco-javier-garcia-gaona"><img src="/media/biography/4" alt="" loading="eager"></a>
-      <a class="mosaic-tile mosaic-c" href="/biografias/praxedis-de-la-pena-garcia"><img src="/media/biography/60" alt="" loading="eager"></a>
-      <a class="mosaic-tile mosaic-d" href="/personas-ilustres"><img src="/public/assets/logo.svg" alt="" loading="eager"></a>
-      <div class="mosaic-caption">Retratos del archivo · familias García Garza y Garza García</div>
+      <a class="mosaic-tile mosaic-a" href="/biografias/antonio-garcia-carrillo"><img src="/public/assets/retratos/antonio-garcia-carrillo.jpg" alt="" loading="eager"></a>
+      <a class="mosaic-tile mosaic-b" href="/personas-ilustres"><img src="/public/assets/retratos/jose-garcia-rodriguez.jpg" alt="" loading="eager"></a>
+      <a class="mosaic-tile mosaic-c" href="/personas-ilustres"><img src="/public/assets/retratos/aurelia-rodriguez-y-ramos.jpg" alt="" loading="eager"></a>
+      <a class="mosaic-tile mosaic-d" href="/biografias/dionisio-garcia-fuentes"><img src="/media/biography/3" alt="" loading="eager"></a>
+      <div class="mosaic-caption">Retratos del archivo · libro Durón · familias García Garza</div>
     </div>
   </div>
 </section>
@@ -38,17 +38,17 @@
 <section class="landing-section gallery-strip">
   <h2 class="section-title">Del archivo vivo</h2>
   <div class="gallery-strip-row">
+    <a class="gallery-card" href="/biografias/antonio-garcia-carrillo">
+      <img src="/public/assets/retratos/antonio-garcia-carrillo.jpg" alt="Lic. Antonio García Carrillo" loading="lazy">
+      <span>Antonio García Carrillo</span>
+    </a>
     <a class="gallery-card" href="/personas-ilustres">
-      <img src="/media/biography/3" alt="Dr. Dionisio García Fuentes" loading="lazy">
-      <span>Dionisio García Fuentes</span>
+      <img src="/public/assets/retratos/jose-garcia-rodriguez.jpg" alt="Don José García Rodríguez" loading="lazy">
+      <span>José García Rodríguez</span>
     </a>
-    <a class="gallery-card" href="/biografias/praxedis-de-la-pena-garcia">
-      <img src="/media/biography/60" alt="Lic. Praxedis de la Peña García" loading="lazy">
-      <span>Praxedis de la Peña García</span>
-    </a>
-    <a class="gallery-card" href="/biografias/francisco-javier-garcia-gaona">
-      <img src="/media/biography/4" alt="Lic. Francisco Javier García Gaona" loading="lazy">
-      <span>Francisco Javier García Gaona</span>
+    <a class="gallery-card" href="/personas-ilustres">
+      <img src="/public/assets/retratos/aurelia-rodriguez-y-ramos.jpg" alt="Doña Aurelia Rodríguez y Ramos" loading="lazy">
+      <span>Aurelia Rodríguez y Ramos</span>
     </a>
     <a class="gallery-card gallery-card-cta" href="/archivo">
       <strong><?= !empty($archiveCount) ? (int)$archiveCount : '—' ?></strong>

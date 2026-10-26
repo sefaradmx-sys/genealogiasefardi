@@ -37,8 +37,8 @@ $isPublic = !empty($public) || $isPublicAuth;
   <?php if (!empty($jsonLd)): ?>
   <script type="application/ld+json"><?= $jsonLd /* pre-encoded JSON */ ?></script>
   <?php endif; ?>
-  <link rel="stylesheet" href="<?= e(asset('app.css')) ?>?v=hdr2610">
-  <link rel="stylesheet" href="/public/assets/investigar.css?v=hdr2610">
+  <link rel="stylesheet" href="<?= e(asset('app.css')) ?>?v=mosaico2610">
+  <link rel="stylesheet" href="/public/assets/investigar.css?v=mosaico2610">
 </head>
 <body class="<?= $isPublic && !$currentUser ? 'public-body' : '' ?><?= !empty($bodyClass) ? ' ' . e($bodyClass) : '' ?>">
 <?php if ($isPublicAuth): ?>
