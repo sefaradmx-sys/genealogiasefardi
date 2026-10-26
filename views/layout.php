@@ -40,7 +40,7 @@ $isPublic = !empty($public) || $isPublicAuth;
   <link rel="stylesheet" href="<?= e(asset('app.css')) ?>">
   <link rel="stylesheet" href="/public/assets/investigar.css?v=cafe2610">
 </head>
-<body class="<?= $isPublic && !$currentUser ? 'public-body' : '' ?>">
+<body class="<?= $isPublic && !$currentUser ? 'public-body' : '' ?><?= !empty($bodyClass) ? ' ' . e($bodyClass) : '' ?>">
 <?php if ($isPublicAuth): ?>
   <?= $content ?>
 <?php else: ?>
@@ -86,7 +86,7 @@ $isPublic = !empty($public) || $isPublicAuth;
     </nav>
   </div>
 </header>
-<main class="wrap<?= !empty($public) && ($title ?? '') === 'Inicio' ? ' wrap-landing' : '' ?>">
+<main class="wrap<?= !empty($public) && ($title ?? '') === 'Inicio' ? ' wrap-landing' : '' ?><?= !empty($bodyClass) ? ' wrap-museo' : '' ?>">
   <?php if ($m = flash('success')): ?><div class="flash success" style="max-width:1100px;margin:1rem auto 0;padding-left:1.25rem;padding-right:1.25rem"><?= e($m) ?></div><?php endif; ?>
   <?php if ($m = flash('error')): ?><div class="flash error" style="max-width:1100px;margin:1rem auto 0;padding-left:1.25rem;padding-right:1.25rem"><?= e($m) ?></div><?php endif; ?>
   <?= $content ?>

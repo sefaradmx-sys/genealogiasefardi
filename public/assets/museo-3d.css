@@ -1,0 +1,49 @@
+/* Museo 3D — Personas ilustres. Palette: café / oro archivo */
+body.museo-3d-page{background:#140d08}
+main.wrap.wrap-museo{max-width:none!important;padding:0!important;margin:0!important}
+body.museo-3d-page .site-footer{display:none}
+.m3d{--oro:#c9a45c;--oro2:#e8cf94;--cafe:#1c120b;--cafe2:#2b1b10;--marfil:#f3e7cf;
+  position:relative;height:calc(100svh - var(--m3dtop,72px));min-height:480px;overflow:hidden;
+  background:radial-gradient(ellipse at 50% 40%,#3a2516 0%,#1c120b 60%,#0c0705 100%);color:var(--marfil);font-family:Georgia,"Times New Roman",serif}
+.m3d-stage{position:absolute;inset:0;touch-action:none;cursor:grab}
+.m3d-stage:active{cursor:grabbing}
+.m3d-stage canvas{display:block;width:100%!important;height:100%!important}
+.m3d-hud{position:absolute;top:0;left:0;right:0;padding:1rem 1.4rem;pointer-events:none;
+  background:linear-gradient(#0c0705e6,#0c070500);z-index:3}
+.m3d-hud .eyebrow{margin:0;color:var(--oro);letter-spacing:.2em;text-transform:uppercase;font-size:.72rem}
+.m3d-hud h1{margin:.15rem 0 .5rem;font-size:clamp(1.5rem,3.4vw,2.4rem);color:var(--oro2);font-weight:normal;text-shadow:0 2px 12px #000}
+.m3d-tabs{display:flex;gap:.4rem;flex-wrap:wrap;pointer-events:auto}
+.m3d-tabs a{color:var(--marfil);text-decoration:none;border:1px solid #c9a45c66;padding:.3rem .8rem;border-radius:2px;font-size:.85rem;background:#1c120bb3}
+.m3d-tabs a.on,.m3d-tabs a:hover{background:var(--oro);color:#1c120b}
+.m3d-help{position:absolute;bottom:.8rem;left:50%;transform:translateX(-50%);z-index:3;font-size:.8rem;color:#e8cf94cc;background:#0c0705b3;padding:.45rem .9rem;border:1px solid #c9a45c44;text-align:center;max-width:94vw}
+.m3d-help button{margin-left:.6rem;background:none;border:1px solid var(--oro);color:var(--oro2);padding:.15rem .6rem;cursor:pointer;font:inherit}
+.m3d-nav{position:absolute;inset:auto 0 50% 0;display:flex;justify-content:space-between;padding:0 .6rem;z-index:3;pointer-events:none}
+.m3d-nav button{pointer-events:auto;width:46px;height:46px;border-radius:50%;border:1px solid var(--oro);background:#0c0705aa;color:var(--oro2);font-size:1.6rem;cursor:pointer}
+.m3d-tip{position:absolute;z-index:4;pointer-events:none;background:#0c0705ee;border:1px solid var(--oro);padding:.5rem .8rem;max-width:280px;opacity:0;transition:opacity .15s;font-size:.85rem}
+.m3d-tip strong{display:block;color:var(--oro2)}
+.m3d-loading{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0c0705;transition:opacity .8s}
+.m3d-loading.done{opacity:0;pointer-events:none}
+.m3d-spin{width:54px;height:54px;border:2px solid #c9a45c33;border-top-color:var(--oro);border-radius:50%;animation:m3dspin 1s linear infinite}
+@keyframes m3dspin{to{transform:rotate(360deg)}}
+/* 2D fallback wall (reduced motion / no WebGL / list mode) */
+.m3d-flat{display:none}
+.m3d.is-flat{height:auto;overflow:visible}
+.m3d.is-flat .m3d-stage,.m3d.is-flat .m3d-nav,.m3d.is-flat .m3d-loading,.m3d.is-flat .m3d-tip{display:none}
+.m3d.is-flat .m3d-hud{position:relative;background:none}
+.m3d.is-flat .m3d-help{position:relative;left:auto;transform:none;margin:0 1.4rem;display:inline-block}
+.m3d.is-flat .m3d-flat{display:block;padding:1rem 1.4rem 3rem}
+.m3d-sala{margin:2rem 0;padding:2rem 1.5rem;background:linear-gradient(#3a2516,#24170d);border-top:3px solid var(--oro);box-shadow:inset 0 30px 60px #0008}
+.m3d-sala h2{font-weight:normal;color:var(--oro2);margin:0 0 1.5rem;text-align:center}
+.m3d-sala h2 span{display:block;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--oro)}
+.m3d-wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:2.2rem 1.6rem}
+.m3d-obra{text-decoration:none;color:var(--marfil);display:flex;flex-direction:column;align-items:center;text-align:center}
+.m3d-marco{display:flex;align-items:center;justify-content:center;width:170px;aspect-ratio:4/5;padding:12px;
+  background:linear-gradient(135deg,#8a6a2c,#e8cf94 30%,#9c7a35 55%,#e2c27e 80%,#6e5220);box-shadow:0 14px 28px #000a,inset 0 0 0 3px #5a4218}
+.m3d-marco img{width:100%;height:100%;object-fit:cover;box-shadow:inset 0 0 0 2px #000}
+.m3d-mono{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:radial-gradient(#4a2f1b,#1c120b);color:var(--oro2);font-size:2.6rem;letter-spacing:.08em;border:1px solid #c9a45c88}
+.m3d-cedula{margin-top:.8rem;background:#f3e7cf;color:#2b1b10;padding:.45rem .7rem;font-size:.82rem;max-width:210px}
+.m3d-cedula strong{display:block}.m3d-cedula small{display:block;color:#6e5220}.m3d-cedula em{display:block;font-size:.75rem}
+.m3d-obra:hover .m3d-marco,.m3d-obra:focus .m3d-marco{transform:translateY(-4px);transition:transform .2s}
+.m3d-foot{text-align:center;color:#e8cf94bb}.m3d-foot a{color:var(--oro2)}
+.m3d .empty{text-align:center;color:#e8cf94aa}
+@media (max-width:640px){.m3d-help{font-size:.7rem}.m3d-hud{padding:.7rem .9rem}}
