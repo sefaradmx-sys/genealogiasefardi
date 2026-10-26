@@ -1,0 +1,20 @@
+RewriteEngine On
+RewriteBase /
+
+# SEO sitemap
+RewriteRule ^sitemap\.xml$ sitemap.php [L]
+
+
+# Deny direct access to sensitive paths (including uploads — serve via /media/ only)
+RewriteRule ^(config\.php|\.env|\.hostgator-db\.json|storage/install\.token|storage/upgrade\.token|storage/upgrade\.lock|sql/) - [F,L]
+RewriteRule ^storage/ - [F,L]
+RewriteRule ^src/ - [F,L]
+RewriteRule ^schema\.sql$ - [F,L]
+
+# Serve existing files/dirs as-is (public assets only; storage already denied)
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Front controller
+RewriteRule ^ index.php [L]
