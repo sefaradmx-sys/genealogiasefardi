@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="760" viewBox="0 0 600 760">
+<defs><radialGradient id="pg" cx="50%" cy="45%" r="70%"><stop offset="0" stop-color="#f8efdc"/><stop offset="1" stop-color="#e2cfa6"/></radialGradient>
+<clipPath id="cp"><path d="M160 120 H440 V330 Q440 450 300 500 Q160 450 160 330 Z"/></clipPath>
+<filter id="n"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2"/><feColorMatrix values="0 0 0 0 .16 0 0 0 0 .1 0 0 0 0 .06 0 0 0 .08 0"/><feComposite in2="SourceGraphic" operator="in"/></filter></defs>
+<rect width="600" height="760" fill="#2a1a10"/>
+<rect x="22" y="22" width="556" height="716" fill="#f3e7cf"/>
+<rect x="40" y="40" width="520" height="680" fill="none" stroke="#c4a15a" stroke-width="3"/><rect x="48" y="48" width="504" height="664" fill="none" stroke="#2a1a10" stroke-width="1"/>
+<g fill="#c4a15a" stroke="#2a1a10" stroke-width="2"><path d="M300 52 l18 28 l-18 -8 l-18 8 z"/>
+<path d="M232 108 l14 -30 l20 18 l34 -30 l34 30 l20 -18 l14 30 z"/><circle cx="246" cy="76" r="6"/><circle cx="300" cy="62" r="7"/><circle cx="354" cy="76" r="6"/></g>
+<path d="M140 150 q-50 80 -10 200 q30 90 120 160" fill="none" stroke="#c4a15a" stroke-width="10" stroke-linecap="round" opacity=".55"/>
+<path d="M460 150 q50 80 10 200 q-30 90 -120 160" fill="none" stroke="#c4a15a" stroke-width="10" stroke-linecap="round" opacity=".55"/>
+<g clip-path="url(#cp)"><rect x="160" y="120" width="140" height="400" fill="#2a1a10"/><rect x="300" y="120" width="140" height="400" fill="#7a4e2a"/>
+<g transform="translate(230,300) scale(0.85)" fill="#c4a15a" stroke="#2a1a10" stroke-width="3">
+<path d="M-60 90 V-30 H-70 V-70 H-50 V-55 H-30 V-70 H-10 V-55 H10 V-70 H30 V-55 H50 V-70 H70 V-30 H60 V90 Z"/>
+<path d="M-18 90 V45 a18 18 0 0 1 36 0 V90 Z" fill="#2a1a10"/>
+<rect x="-35" y="-15" width="14" height="26" rx="7" fill="#2a1a10"/><rect x="21" y="-15" width="14" height="26" rx="7" fill="#2a1a10"/>
+<path d="M-75 95 H75" stroke-width="6"/></g><g transform="translate(370,300) scale(0.85)" fill="#f3e7cf" stroke="#2a1a10" stroke-width="3" stroke-linejoin="round">
+<path d="M-10 -95 q14 -8 22 2 l40 6 l-40 4 q-6 30 -20 50 q40 10 55 50 q6 25 -18 40 q-30 12 -60 -4 q-25 -20 -10 -55 q10 -20 25 -32 q8 -30 6 -60 z"/>
+<path d="M-5 30 q30 0 55 30" fill="none"/><circle cx="2" cy="-88" r="3.5" fill="#2a1a10"/>
+<path d="M-12 60 V125 M8 60 V125 M-22 125 H2 M-2 125 H22" fill="none" stroke-width="4"/></g></g>
+<path d="M160 120 H440 V330 Q440 450 300 500 Q160 450 160 330 Z" fill="none" stroke="#c4a15a" stroke-width="12"/><path d="M160 120 H440 V330 Q440 450 300 500 Q160 450 160 330 Z" fill="none" stroke="#2a1a10" stroke-width="3"/>
+<line x1="300" y1="120" x2="300" y2="500" stroke="#c4a15a" stroke-width="5"/>
+<path d="M90 560 H510 l-25 35 l25 35 H90 l25 -35 z" fill="#2a1a10" stroke="#c4a15a" stroke-width="3"/>
+<text x="300" y="606" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif" font-size="38" letter-spacing="4" fill="#c4a15a">GARCÍA GARZA</text>
+<text x="300" y="672" text-anchor="middle" font-family="DejaVu Serif, Georgia, serif" font-style="italic" font-size="20" fill="#2a1a10">Linaje de Lorenzo García y Juana de la Garza</text>
+</svg>
